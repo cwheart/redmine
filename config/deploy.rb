@@ -2,7 +2,7 @@
 lock '3.1.0'
 
 set :application, 'redmine'
-set :repo_url, 'git@github.com:acenqiu/weibo2.git'
+set :repo_url, 'git@github.com:cwheart/redmine.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
