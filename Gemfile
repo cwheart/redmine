@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://ruby.taobao.org'
 
 gem "rails", "3.2.17"
 gem "rake", "~> 10.1.1"
@@ -81,6 +81,7 @@ end
 group :development do
   gem "rdoc", ">= 2.4.2"
   gem "yard"
+  gem 'capistrano', '~> 3.1.0'
 end
 
 group :test do
