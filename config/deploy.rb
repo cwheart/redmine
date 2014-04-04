@@ -39,6 +39,7 @@ namespace :deploy do
   desc 'Init redmine'
   task :init do
     on roles(:app) do
+      execute "cd #{deploy_to}/current/"
       execute :rake, 'db:create'
       execute :rake, 'db:migrate'
       execute :rake, 'redmine:load_default_data'
