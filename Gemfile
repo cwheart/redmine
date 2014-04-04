@@ -87,7 +87,10 @@ group :development do
   gem 'capistrano-rails', '~> 1.1'
 end
 
-gem 'puma'
+group :production do
+  gem 'typhoeus'
+  gem 'puma'
+end
 
 group :test do
   gem "shoulda", "~> 3.3.2"
