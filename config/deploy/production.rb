@@ -1,5 +1,6 @@
 set :rvm_type, :system
 set :rvm_ruby_version, '2.0.0'
+set :rails_env, :production
 
 # Simple Role Syntax
 # ==================

@@ -46,11 +46,19 @@ namespace :deploy do
   #   end
   # end
 
+  desc 'Start application'
+  task :start do
+    on roles(:app) do
+      rails_env=fetch(:default_env)[:rails_env].to_s
+      execute "cd #{deploy_to}/current/ && RAILS_ENV=#{rails_env} bundle exec bin/puma -C config/puma.rb"
+    end
+  end
+
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
+      rails_env=fetch(:default_env)[:rails_env].to_s
+      execute "cd #{deploy_to}/current/ && RAILS_ENV=#{rails_env} bundle exec bin/pumactl -S tmp/states/puma.state restart"
     end
   end
 
