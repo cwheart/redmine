@@ -39,5 +39,4 @@
 /.bundle
 /Gemfile.lock
 /Gemfile.local
-/config/deploy/*
 
