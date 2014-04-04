@@ -1,3 +1,6 @@
+set :rvm_type, :system
+set :rvm_ruby_version, '2.0.0'
+
 # Simple Role Syntax
 # ==================
 # Supports bulk-adding hosts to roles, the primary
@@ -5,7 +8,7 @@
 # unless any hosts have the primary property set.
 # Don't declare `role :all`, it's a meta role
 role :app, %w{xinshuaifeng.com}
-role :web, %w{xinshuiafeng.com}
+role :web, %w{xinshuaifeng.com}
 role :db,  %w{xinshuaifeng.com}
 
 # Extended Server Syntax

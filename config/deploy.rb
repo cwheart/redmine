@@ -36,6 +36,15 @@ set :keep_releases, 5
 
 namespace :deploy do
 
+  desc 'Init redmine'
+  task :init do
+    on roles(:app) do
+      execute :rake, 'db:create'
+      execute :rake, 'db:migrate'
+      execute :rake, 'redmine:load_default_data'
+    end
+  end
+
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
