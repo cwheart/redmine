@@ -41,3 +41,5 @@ server 'xinshuaifeng.com', user: 'www-data', roles: %w{web app}, my_property: :m
 #     # password: 'please use keys'
 #   }
 # setting per server overrides global ssh_options
+
+fetch(:default_env).merge!(rails_env: :production)
