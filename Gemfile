@@ -87,6 +87,8 @@ group :development do
   gem 'capistrano-rails', '~> 1.1'
 end
 
+gem 'puma'
+
 group :test do
   gem "shoulda", "~> 3.3.2"
   gem "mocha", ">= 0.14", :require => 'mocha/api'
