@@ -23,10 +23,10 @@ set :deploy_to, '/www/redmine'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/database.yml config/puma.rb}
+set :linked_files, %w{config/database.yml config/puma.rb public/assets/manifest.yml}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets tmp/states vendor/bundle public/system assets assets_manifest_backup}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets tmp/states vendor/bundle public/system public/assets assets_manifest_backup}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
