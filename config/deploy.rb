@@ -26,7 +26,7 @@ set :deploy_to, '/www/redmine'
 set :linked_files, %w{config/database.yml config/puma.rb}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets tmp/states vendor/bundle public/system}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets tmp/states vendor/bundle public/system assets assets_manifest_backup}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -36,15 +36,15 @@ set :keep_releases, 5
 
 namespace :deploy do
 
-  desc 'Init redmine'
-  task :init do
-    on roles(:app) do
-      execute "cd #{deploy_to}/current/"
-      execute :rake, 'db:create'
-      execute :rake, 'db:migrate'
-      execute :rake, 'redmine:load_default_data'
-    end
-  end
+  # desc 'Init redmine'
+  # task :init do
+  #   on roles(:app) do
+  #     execute :cd, "#{deploy_to}/current/"
+  #     execute :rake, 'db:create'
+  #     execute :rake, 'db:migrate'
+  #     execute :rake, 'redmine:load_default_data'
+  #   end
+  # end
 
   desc 'Restart application'
   task :restart do
