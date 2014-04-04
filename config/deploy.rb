@@ -50,7 +50,7 @@ namespace :deploy do
   task :start do
     on roles(:app) do
       rails_env=fetch(:default_env)[:rails_env].to_s
-      execute "cd #{deploy_to}/current/ && RAILS_ENV=#{rails_env} bundle exec bin/puma -C config/puma.rb"
+      execute "cd #{deploy_to}/current/ && ( RAILS_ENV=#{rails_env} /usr/local/rvm/bin/rvm 2.0.0 do bundle exec bin/puma -C config/puma.rb )"
     end
   end
 
