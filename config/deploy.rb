@@ -58,7 +58,15 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       rails_env=fetch(:default_env)[:rails_env].to_s
-      execute "cd #{deploy_to}/current/ && ( RAILS_ENV=#{rails_env} /usr/local/rvm/bin/rvm 2.0.0 do bundle exec bin/pumactl -S tmp/states/puma.state restart"
+      execute "cd #{deploy_to}/current/ && ( RAILS_ENV=#{rails_env} /usr/local/rvm/bin/rvm 2.0.0 do bundle exec bin/pumactl -S tmp/states/puma.state restart )"
+    end
+  end
+
+  desc 'Stop application'
+  task :stop do
+    on roles(:app) do
+      rails_env=fetch(:default_env)[:rails_env].to_s
+      execute "cd #{deploy_to}/current/ && ( /usr/local/rvm/bin/rvm 2.0.0 do bundle exec bin/pumactl -S tmp/states/puma.state stop )"
     end
   end
 
